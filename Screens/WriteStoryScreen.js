@@ -53,7 +53,7 @@ export default class WriteStoryScreen extends Component{
         alignItems:"center",
         alignSelf:"center"}}
         placeholder="Write Story"
-        multiline:true
+        multiline={true}   
         />
         <TouchableOpacity style={{
           borderRadius:20,
