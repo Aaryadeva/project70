@@ -2,7 +2,17 @@ import React,{Component} from 'react';
 import { StyleSheet, Text, View,TextInput,TouchableOpacity} from 'react-native';
 import { Header } from 'react-native-elements';
 
+
 export default class WriteStoryScreen extends Component{
+  constructor(){
+    super();
+    this.state={
+      author:'',
+      story:'',
+      title:''
+    }
+  }
+  
     render(){
         return(
             <View>
@@ -16,23 +26,27 @@ export default class WriteStoryScreen extends Component{
           rightComponent={{ icon: 'home', color: 'white' }}
         />
         <TextInput
-        style={{borderRadius:20,
+        style={{borderRadius:5,
         borderColor:"black",
         width:200,
-        height:20,
+        height:50,
         backgroundColor:"blue",
-        marginTop:20,
+        marginTop:100,
         justifyContent:'center',
         textAlign:"center",
         alignItems:"center",
         alignSelf:"center"}}
         placeholder="Title of the Story"
+        placeholderTextColor="white"
+        onChangeText={(text)=>{this.setState({
+        title:text
+      })}}
         />
         <TextInput
-        style={{borderRadius:20,
+        style={{borderRadius:5,
         borderColor:"black",
         width:200,
-        height:20,
+        height:50,
         backgroundColor:"blue",
         marginTop:20,
         justifyContent:'center',
@@ -40,12 +54,16 @@ export default class WriteStoryScreen extends Component{
         alignItems:"center",
         alignSelf:"center"}}
         placeholder="Author of The Story"
+        placeholderTextColor="white"
+        onChangeText={(text)=>{this.setState({
+        author:text
+      })}}
         />
         <TextInput
-        style={{borderRadius:20,
+        style={{borderRadius:5,
         borderColor:"black",
         width:200,
-        height:20,
+        height:50,
         backgroundColor:"blue",
         marginTop:20,
         justifyContent:'center',
@@ -53,14 +71,19 @@ export default class WriteStoryScreen extends Component{
         alignItems:"center",
         alignSelf:"center"}}
         placeholder="Write Story"
+        placeholderTextColor="white"
         multiline={true}   
+        onChangeText={(text)=>{this.setState({
+        story:text
+      })}}
         />
+        <View>
         <TouchableOpacity style={{
-          borderRadius:20,
+          borderRadius:5,
         borderColor:"black",
         width:100,
-        height:20,
-        backgroundColor:"white",
+        height:35,
+        backgroundColor:"blue",
         marginTop:20,
         justifyContent:'center',
         textAlign:"center",
@@ -68,8 +91,9 @@ export default class WriteStoryScreen extends Component{
         alignSelf:"center"
         }}
         >
-        <Text>Submit</Text>
+        <Text style={{color:'white'}}>Submit</Text>
         </TouchableOpacity>
+         </View>
 
             </View>
         )
